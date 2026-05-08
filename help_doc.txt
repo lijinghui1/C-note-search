@@ -1,0 +1,8 @@
+|/help |reading help_doc or using recommand
+|———————————————————————————————————————————————————————
+|/list 'path'|list all files under the path (the paths are added to the moren_file's end)
+|———————————————————————————————————————————————————————
+|/exit |to exit the program
+|———————————————————————————————————————————————————————
+|/read 'path'|to read the doc of cpp_notes
+|———————————————————————————————————————————————————————

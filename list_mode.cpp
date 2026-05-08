@@ -4,11 +4,14 @@
 #include <fstream>
 using namespace std;
 
+#define line_fix "-------------------------------"
+
 //dayin_shaixuan()使用的头文件
 #include <filesystem>
 #include <vector>
 namespace fs =std::filesystem;
-
+//颜色字
+#include "colorful_word_include.h"
 
 //函数有默认参数，默认参数为一个设定的路径
 //当输入一个路径后就在默认参数路径后添加这个路径，用来列出底下的所有文件夹
@@ -23,7 +26,8 @@ void list_file_output(string moren_file="")
     //文件打开错误处理
     if(!moren_file_wenjian)
     {
-        cout<<"Missing important 'moren_file.txt' "<<endl;
+        cout<<line_fix<<endl;
+        word_set_API("Missing important file 'moren_file.txt' !",2);
         return;
     }
     getline(moren_file_wenjian,file_str);
@@ -41,7 +45,6 @@ void list_file_output(string moren_file="")
         file_str.append(moren_file);
         string puzzle_file =file_str;
         dayin_shaixuan(puzzle_file);
-
     }
 }
 
@@ -49,17 +52,19 @@ void list_file_output(string moren_file="")
 void dayin_shaixuan(string final_file)
 {
     fs::path Final_file =fs::path(final_file);
+    //错误处理
+    cout<<Final_file<<endl;
+    cout<<line_fix<<endl;
+    if(!fs::exists(Final_file))
+    {
+        
+        word_set_API("Can't find out file path ,please check note file!",4);
+        return;
+    }
     for (auto& i : fs::directory_iterator(Final_file)) 
     {
 		string output =i.path().filename().string();
-        // string output =i.path().string();
-        // //打印出文件夹，当筛选出cpp
-        // int posi=0;
-        // for(int a =output.length()-1;a>=0;a--)
-        //     if(output[a]=='\\')
-        //     posi = ;
-        // output =output.substr(posi);
-        // cout<<output<<endl;
+        cout<<"~"<<output<<endl;
 	}
 
 }

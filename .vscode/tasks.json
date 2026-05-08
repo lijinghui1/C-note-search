@@ -1,4 +1,18 @@
 {
+    "label": "build",
+    "type": "shell",
+    "command": "g++",
+    "args": [
+        "-g",
+        "src/*.cpp",
+        "-Iinclude",
+        "-o",
+        "note_search_sys.exe"
+    ],
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    },
     "tasks": [
         {
             "type": "cppbuild",
