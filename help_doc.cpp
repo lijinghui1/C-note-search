@@ -10,7 +10,7 @@ void print_help_docx()
     //文件路径不存在报错
     if (!help_doc)
     {
-        word_set_API("Can't find out the 'help_doc' file ,please connect to programmer!",4);
+        word_set_API("找不到'help_doc'文件 ,请联系管理员",4);
         return;   
     }
     string line_string;

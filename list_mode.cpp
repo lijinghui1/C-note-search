@@ -8,7 +8,6 @@ using namespace std;
 
 //dayin_shaixuan()使用的头文件
 #include <filesystem>
-#include <vector>
 namespace fs =std::filesystem;
 //颜色字
 #include "colorful_word_include.h"
@@ -27,7 +26,7 @@ void list_file_output(string moren_file="")
     if(!moren_file_wenjian)
     {
         cout<<line_fix<<endl;
-        word_set_API("Missing important file 'moren_file.txt' !",2);
+        word_set_API("找不到路径存放文件 'moren_file.txt' !",2);
         return;
     }
     getline(moren_file_wenjian,file_str);
@@ -58,7 +57,7 @@ void dayin_shaixuan(string final_file)
     if(!fs::exists(Final_file))
     {
         
-        word_set_API("Can't find out file path ,please check note file!",4);
+        word_set_API("找不到文件路径，请检查笔记文件！",4);
         return;
     }
     for (auto& i : fs::directory_iterator(Final_file)) 

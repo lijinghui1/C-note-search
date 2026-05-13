@@ -17,13 +17,14 @@ void read_cpp_note(string path)
     //文件打开错误处理
     if(!moren_file_wenjian)
     {
-        word_set_API("Missing important file 'moren_file.txt' ",2);
+        word_set_API("找不到默认路径存放文件 'moren_file.txt' ",2);
         return;
     }
     //文字拼接处理
     getline(moren_file_wenjian,file_str);
     file_str.append("\\");
     file_str.append(path);
+    file_str.append(".cpp");
     namespace fs = std::filesystem;
     fs::path read_doc_file;
     read_doc_file= file_str;
@@ -32,7 +33,7 @@ void read_cpp_note(string path)
     cout<<line_fix<<endl;
     if(!fs::exists(read_doc_file))
     {
-        word_set_API("Please check the path of file_note cpp",4);
+        word_set_API("请检查路径是否存在",4);
         return;
     }
     else 
